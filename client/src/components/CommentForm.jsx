@@ -8,13 +8,13 @@ const CommentForm = () => {
   const [name, setName] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:3000/comments")
+    fetch("https://test-community.onrender.com/comments")
       .then((response) => response.json())
       .then(setComments);
   }, []);
 
   const handleAddComment = () => {
-    fetch("http://localhost:3000/comments", {
+    fetch("https://test-community.onrender.com/comments", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -22,7 +22,7 @@ const CommentForm = () => {
       body: JSON.stringify({ text: newComment, name: name }),
     })
       .then(() => setNewComment(""))
-      .then(() => fetch("http://localhost:3000/comments"))
+      .then(() => fetch("https://test-community.onrender.com/comments"))
       .then((response) => response.json())
       .then(setComments);
   };
